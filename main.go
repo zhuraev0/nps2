@@ -34,12 +34,13 @@ func main() {
 	detractorsUpperBound := 6
 	// problem x: auto-testing
 	// for + Tab
-	for i := 0; i < len(scores); i++ {
-		if scores[i] >= promotersLowerBound {
+	// _ - don't care (всё равно)
+	for _, value := range scores {
+		if value >= promotersLowerBound {
 			promoters = promoters + 1
 		}
 
-		if scores[i] <= detractorsUpperBound {
+		if value <= detractorsUpperBound {
 			detractors = detractors + 1
 		}
 	}
