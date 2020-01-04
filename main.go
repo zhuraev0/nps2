@@ -11,11 +11,8 @@ import "fmt"
 // 0 - 100% = -100%
 func main() {
 	// problem 1: как хранить много данных
-	score1 := 10
-	score2 := 7
-	score3 := 10
-
-
+	// go -> массив заполняется нулевыми значениями (по умолчанию)
+	scores := [3]int{10, 7, 10}
 
 	// nps = 100
 	promoters := 0
@@ -36,29 +33,15 @@ func main() {
 	promotersLowerBound := 9
 	detractorsUpperBound := 6
 	// problem x: auto-testing
+	// for + Tab
+	for i := 0; i < len(scores); i++ {
+		if scores[i] >= promotersLowerBound {
+			promoters = promoters + 1
+		}
 
-	if score1 >= promotersLowerBound {
-		promoters = promoters + 1
-	}
-
-	if score1 <= detractorsUpperBound {
-		detractors = detractors + 1
-	}
-
-	// ctrl + alt + shift + левый клик мыши (много курсоров)
-	if score2 >= promotersLowerBound {
-		promoters = promoters + 1
-	}
-
-	if score2 <= detractorsUpperBound {
-		detractors = detractors + 1
-	}
-	if score3 >= promotersLowerBound {
-		promoters = promoters + 1
-	}
-
-	if score3 <= detractorsUpperBound {
-		detractors = detractors + 1
+		if scores[i] <= detractorsUpperBound {
+			detractors = detractors + 1
+		}
 	}
 
 	// nps := (2 - 0) / 3 * 100
@@ -66,6 +49,6 @@ func main() {
 	// 2 * 100 / 3 -> 200 / 3 -> 66
 	// nps := (promoters - detractors) / 3 * 100
 	// 3 - magic values
-	nps := (promoters - detractors) * 100 / 3
+	nps := (promoters - detractors) * 100 / len(scores)
 	fmt.Println(nps)
 }
