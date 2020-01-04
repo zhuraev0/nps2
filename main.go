@@ -15,6 +15,8 @@ func main() {
 	score2 := 7
 	score3 := 10
 
+
+
 	// nps = 100
 	promoters := 0
 	detractors := 0
