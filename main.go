@@ -27,27 +27,35 @@ func main() {
 	// problem 2: дублирование кода
 	// problem 3: magic values - очень дурным тоном
 	// 60, 12, 7 - magic values -> кол-во секунд 12 месяцев 7 дней
-	if score1 >= 9 {
+
+	// refactoring: улучшение структуры код без модификации поведения
+	// ctrl + alt + v с выделением - позволяет создать локальную переменную
+	// shift + f6 - переименование имени
+	promotersLowerBound := 9
+	detractorsUpperBound := 6
+	// problem x: auto-testing
+
+	if score1 >= promotersLowerBound {
 		promoters = promoters + 1
 	}
 
-	if score1 <= 6 {
+	if score1 <= detractorsUpperBound {
 		detractors = detractors + 1
 	}
 
 	// ctrl + alt + shift + левый клик мыши (много курсоров)
-	if score2 >= 9 {
+	if score2 >= promotersLowerBound {
 		promoters = promoters + 1
 	}
 
-	if score2 <= 6 {
+	if score2 <= detractorsUpperBound {
 		detractors = detractors + 1
 	}
-	if score3 >= 9 {
+	if score3 >= promotersLowerBound {
 		promoters = promoters + 1
 	}
 
-	if score3 <= 6 {
+	if score3 <= detractorsUpperBound {
 		detractors = detractors + 1
 	}
 
