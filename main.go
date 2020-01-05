@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-
+/*
 // % (Number of promotes) - % (Number of detractors)
 // 100 respondents:
 // - max of promoters - 100%, min - 0%
@@ -51,5 +51,38 @@ func main() {
 	// nps := (promoters - detractors) / 3 * 100
 	// 3 - magic values
 	nps := (promoters - detractors) * 100 / len(scores)
-	fmt.Println(nps)
+	fmt.Println(nps)*/
+
+func main() {
+		{
+			scores := []int{10, 7, 10,10 ,10}
+		result :=nps(scores)
+		fmt.Println(80==result)
+		}
+		{
+			scores := []int{10, 10, 10,10 ,10}
+			result :=nps(scores)
+			fmt.Println(100==result)
+		}
 }
+//slays - динамически изменяемый "список"
+		func nps(scores[]int) int{
+		promoters := 0
+		detractors := 0
+		promotersLowerBound := 9
+		detractorsUpperBound := 6
+		for _, value := range scores {
+			if value >= promotersLowerBound {
+				promoters = promoters + 1
+			}
+
+			if value <= detractorsUpperBound {
+				detractors = detractors + 1
+			}
+		}
+		nps := (promoters - detractors) * 100 / len(scores)
+		fmt.Println(nps)
+		return 0
+	}
+
+
